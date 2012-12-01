@@ -102,7 +102,9 @@ module FbGraph
     module_function
 
     def registered_mocks
-      Dir.glob('../../mock_json/**/*.json').collect do |file_path|
+      Dir.glob(
+        File.join(File.dirname(__FILE__), '../../mock_json/**/*.json')
+      ).collect do |file_path|
         file_path.split('mock_json').last.sub('.json', '')
       end
     end
