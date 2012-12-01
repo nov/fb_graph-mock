@@ -40,6 +40,32 @@ In foo_spec.rb
 You can see lots of samples in fb_graph's specs.
 https://github.com/nov/fb_graph
 
+== Registered Mocks and Your Custom Mocks
+
+To improve fb_graph and other projects using this gem, keeping mock JSONs are important.
+
+If you find any legacy response format in this gem's mock_json directory, please report an issue or send a pull request with new JSON file.
+
+You can find all registered responses as below.
+
+  FbGraph::Mock.registered_mocks
+
+If it's hard to share your mock JSON (e.g. because of privacy issue), you can use your own response file as below.
+
+  file_path = File.join(Rails.root, 'spec/my_own_mock_json/users/me_private.json')
+  mock_graph :get, 'me', file_path do
+    # Do something.
+  end
+
+If a file is found at the given file path, this gem uses the file.
+
+Otherwise, this gem search a registered mock JSON file in its own registry.
+
+  file_path = File.join(Rails.root, 'users/albums/arjun_public')
+  mock_graph :get, 'me', file_path do # => uses "mock_json/users/albums/arjun_public.json" in this gem.
+    # Do something.
+  end
+
 == Note on Patches/Pull Requests
  
 * Fork the project.
