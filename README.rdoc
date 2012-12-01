@@ -11,8 +11,8 @@ Though it's ported from fb_graph gem, you can also use it out of fb_graph gem. (
 
 == Examples
 
-You can see lots of samples in fb_graph's specs.
-https://github.com/nov/fb_graph
+  require 'fb_graph-mock'
+  include FbGraph::Mock
 
   mock_graph :get, 'me', 'users/me_private', :access_token => 'access_token' do
     user = FbGraph::User.me('access_token').fetch
@@ -27,8 +27,8 @@ https://github.com/nov/fb_graph
 
 === More Examples?
 
-See GitHub wiki for more examples.
-https://github.com/nov/fb_graph/wiki
+You can see lots of samples in fb_graph's specs.
+https://github.com/nov/fb_graph
 
 == Note on Patches/Pull Requests
  
