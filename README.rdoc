@@ -16,6 +16,7 @@ In spec_helper.rb
 
   require 'fb_graph/mock'
   include FbGraph::Mock
+  WebMock.disable_net_connect! # Optional
 
 In foo_spec.rb
 
