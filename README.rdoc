@@ -3,7 +3,8 @@
 Facebook Graph API mocking helper, originally used in fb_graph gem.
 
 This gem simply mock HTTP request & response using webmock gem, and returns pre-registered JSON response.
-Though it's ported from fb_graph gem, you can also use it out of fb_graph gem. (e.g. with kwala gem etc.)
+
+It means you can use fb_graph-mock gem even with kwala, rest-client, or any other code which access to Facebook Graph API.
 
 == Installation
 
