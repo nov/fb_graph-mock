@@ -61,8 +61,7 @@ If a file is found at the given file path, this gem uses the file.
 
 Otherwise, this gem search a registered mock JSON file in its own registry.
 
-  file_path = File.join(Rails.root, 'users/albums/arjun_public')
-  mock_graph :get, 'me', file_path do # => uses "mock_json/users/albums/arjun_public.json" in this gem.
+  mock_graph :get, 'me', 'users/albums/arjun_public do # => uses "mock_json/users/albums/arjun_public.json" in this gem.
     # Do something.
   end
 
