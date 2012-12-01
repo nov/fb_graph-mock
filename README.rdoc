@@ -11,18 +11,26 @@ Though it's ported from fb_graph gem, you can also use it out of fb_graph gem. (
 
 == Examples
 
-  require 'fb_graph-mock'
+In spec_helper.rb
+
+  require 'fb_graph/mock'
   include FbGraph::Mock
 
-  mock_graph :get, 'me', 'users/me_private', :access_token => 'access_token' do
-    user = FbGraph::User.me('access_token').fetch
-    user.website.should == 'http://matake.jp'
+In foo_spec.rb
+
+  it do
+    mock_graph :get, 'me', 'users/me_private', :access_token => 'access_token' do
+      user = FbGraph::User.me('access_token').fetch
+      user.website.should == 'http://matake.jp'
+    end
   end
 
-  mock_graph :get, 'me', 'users/me_public', :status => [401, 'Unauthorized'] do
-    lambda do
-      FbGraph::User.fetch :me
-    end.should raise_error FbGraph::Unauthorized
+  it do
+    mock_graph :get, 'me', 'users/me_public', :status => [401, 'Unauthorized'] do
+      lambda do
+        FbGraph::User.fetch :me
+      end.should raise_error FbGraph::Unauthorized
+    end
   end
 
 === More Examples?
