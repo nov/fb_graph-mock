@@ -12,14 +12,16 @@ module FbGraph
       ).to_return(
         response_for(response_path, options)
       )
-      response = yield
-      a_request(
-        method,
-        endpoint_for(path)
-      ).with(
-        request_for(method, options)
-      ).should have_been_made.once
-      response
+      if block_given?
+        response = yield
+        a_request(
+          method,
+          endpoint_for(path)
+        ).with(
+          request_for(method, options)
+        ).should have_been_made.once
+        response
+      end
     end
 
     def mock_fql(query, response_file, options = {})
@@ -31,11 +33,13 @@ module FbGraph
       ).to_return(
         response_for(response_file, options)
       )
-      response = yield
-      a_request(:get, FbGraph::Query.new(query).endpoint).with(
-        request_for(:get, options)
-      ).should have_been_made.once
-      response
+      if block_given?
+        response = yield
+        a_request(:get, FbGraph::Query.new(query).endpoint).with(
+          request_for(:get, options)
+        ).should have_been_made.once
+        response
+      end
     end
 
     def request_to(path, method = :get)
