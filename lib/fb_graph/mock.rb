@@ -90,7 +90,7 @@ module FbGraph
         )
       end
       unless File.exist? _response_file_path_
-        response_file_required! response_path
+        response_file_required! _response_file_path_
       end
       File.new _response_file_path_
     end
@@ -98,7 +98,7 @@ module FbGraph
     def response_file_required!(response_path)
       warn [
         'No response file found.',
-        'Send a pull request to fb_graph-mock gem with a JSON file!',
+        'You can register a response mock by sending a pull request to fb_graph-mock gem.',
         "(at #{File.join 'mock_json', response_path.split('mock_json').last})"
       ].join("\n")
     end
