@@ -2,7 +2,76 @@ require 'spec_helper'
 
 describe FbGraph::Mock do
   describe '#mock_graph' do
-    it :TODO
+    context 'when block given' do
+      it 'should register WebMock stub' do
+        request_signature = WebMock::RequestSignature.new :get, File.join(FbGraph::ROOT_URL, 'matake')
+        mock_graph :get, 'matake', 'users/me_private' do
+          WebMock::StubRegistry.instance.should be_registered_request request_signature
+          FbGraph::User.fetch(:matake)
+        end
+      end
+
+      context 'when registered request not called' do
+        it 'should raise WebMock::AssertionFailure.error_class' do
+          expect do
+            mock_graph :get, 'me', 'users/me_private' do
+              # nothing to do
+            end
+          end.to raise_error WebMock::AssertionFailure.error_class
+        end
+      end
+
+      context 'otherwise' do
+        it 'should not raise error' do
+          expect do
+            mock_graph :get, 'matake', 'users/me_private' do
+              FbGraph::User.fetch(:matake)
+            end
+          end.not_to raise_error
+        end
+      end
+    end
+
+    context 'when no block given' do
+      it 'should register WebMock stub' do
+        request_signature = WebMock::RequestSignature.new :get, File.join(FbGraph::ROOT_URL, 'matake')
+        mock_graph :get, 'matake', 'users/me_private'
+        WebMock::StubRegistry.instance.should be_registered_request request_signature
+      end
+
+      context 'when registered request not called' do
+        it do
+          expect do
+            mock_graph :get, 'me', 'users/me_private'
+          end.not_to raise_error
+        end
+      end
+    end
+
+    context 'when registered response file specified' do
+      it do
+        expect do
+          mock_graph :get, 'me', 'users/me_private'
+        end.not_to raise_error
+      end
+    end
+
+    context 'when custom response file specified' do
+      it do
+        absolute_path = File.join File.dirname(__FILE__), '../../mock_json/users/me_private.json'
+        expect do
+          mock_graph :get, 'me', absolute_path
+        end.not_to raise_error
+      end
+    end
+
+    context 'when no response file found' do
+      it do
+        expect do
+          mock_graph :get, 'me', 'not_registered'
+        end.to raise_error Errno::ENOENT, /No such file or directory/
+      end
+    end
   end
 
   describe '#mock_fql' do
