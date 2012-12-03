@@ -116,6 +116,16 @@ describe FbGraph::Mock do
         end
       end
     end
+
+    context 'when status given' do
+      it 'should mock response with given status' do
+        expect do
+          mock_graph :get, 'me', 'users/me_public', :status => [401, 'Unauthorized'] do
+            FbGraph::User.fetch :me
+          end
+        end.to raise_error FbGraph::Unauthorized
+      end
+    end
   end
 
   describe '#mock_fql' do
@@ -187,6 +197,16 @@ describe FbGraph::Mock do
           mock_fql query, 'not_registered'
         end.to raise_error Errno::ENOENT, /No such file or directory/
       end
+    end
+  end
+
+  describe '#request_to' do
+    it 'should assert whether WebMock::NetConnectNotAllowedError' do
+      request_signature = WebMock::RequestSignature.new :get, File.join(FbGraph::ROOT_URL, 'me')
+      expect do
+        error = WebMock::NetConnectNotAllowedError.new request_signature
+        raise error
+      end.to request_to '/me'
     end
   end
 
