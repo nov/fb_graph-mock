@@ -1,0 +1,22 @@
+{
+  "devices": [
+    {
+      "os": "iOS",
+      "hardware": "iPhone"
+    }
+  ],
+  "video_upload_limits": {
+    "length": 1200,
+    "size": 1073741824
+  },
+  "age_range": {
+    "min": 21
+  },
+  "currency": {
+    "user_currency": "JPY",
+    "currency_exchange": 0.10846341,
+    "currency_exchange_inverse": 9.2196990672,
+    "currency_offset": 1
+  },
+  "id": "579612276"
+}
