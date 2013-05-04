@@ -25,9 +25,8 @@ module FbGraph
     end
 
     def mock_fql(query, response_file, options = {})
-      options.merge!(:params => {
-        :q => query
-      })
+      options[:params] ||= {}
+      options[:params].merge!(:q => query)
       stub_request(:get, FbGraph::Query.new(query).endpoint).with(
         request_for(:get, options)
       ).to_return(
