@@ -1,0 +1,101 @@
+{
+   "data": [
+      {
+         "adgroup_id": 6001111111668,
+         "ad_id": 6001111111668,
+         "campaign_id": 6001111111467,
+         "name": "Ad Group Name",
+         "adgroup_status": 1,
+         "bid_type": 6,
+         "max_bid": 100,
+         "bid_info": {
+            "1": 0,
+            "37": 0,
+            "38": 0,
+            "44": 0,
+            "45": 0,
+            "46": 0,
+            "48": 0,
+            "55": 100
+         },
+         "ad_status": 1,
+         "locations": [
+            3
+         ],
+         "impression_control_map": [
+            {
+               "location": 3,
+               "control": {
+                  "impression_control_type": 2,
+                  "user_impression_limit": 6,
+                  "user_impression_limit_period": 24,
+                  "user_impression_limit_period_unit": 0
+               }
+            }
+         ],
+         "account_id": 100111111111121,
+         "id": "6001111111308",
+         "creative_ids": [
+            6111111111118
+         ],
+         "targeting": {
+            "genders": [
+               1
+            ],
+            "age_max": 64,
+            "age_min": 55,
+            "countries": [
+               "US"
+            ],
+            "keywords": [
+               "kohler",
+               "grohe",
+               "#Kohler Company",
+               "#Moen (company)",
+               "american standard"
+            ],
+            "excluded_connections": [
+            ],
+            "page_types": [
+               "desktop"
+            ]
+         },
+         "conversion_specs": [
+            {
+               "action.type": [
+                  "like"
+               ],
+               "page": [
+                  144111111132
+               ]
+            }
+         ],
+         "tracking_specs": [
+            {
+               "action.type": [
+                  "page_engagement"
+               ],
+               "page": [
+                  111111111112
+               ]
+            }
+         ],
+         "tracking_pixel_ids": [
+
+         ],
+         "last_updated_by_app_id": 311111111117,
+         "start_time": null,
+         "end_time": null,
+         "updated_time": "2013-05-01T21:44:32+0000",
+         "created_time": "2013-05-01T21:40:48+0000"
+      }
+   ],
+   "count": 560,
+   "limit": 500,
+   "offset": "500",
+   "include_deleted": true,
+   "paging": {
+      "next": "https://graph.facebook.com/act_100111111111121/adgroups?access_token=BAAAAU|access_token|gjAZD&offset=100&campaign_ids=\u00255B\u0025226001111111467\u002522\u00255D",
+      "previous": "https://graph.facebook.com/act_100111111111121/adgroups?access_token=BAAAAU|access_token|gjAZD&offset=0&campaign_ids=\u00255B\u0025226001111111467\u002522\u00255D&limit=500"
+   }
+}
