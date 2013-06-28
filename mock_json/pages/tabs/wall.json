@@ -1,11 +1,11 @@
 {
   "data": [
     {
-      "id": "117513961602338/tabs/wall", 
-      "name": "Wall", 
-      "link": "https://www.facebook.com/FbGraph?sk=wall", 
-      "is_permanent": true, 
-      "position": 0, 
+      "id": "117513961602338/tabs/wall",
+      "name": "Wall",
+      "link": "https://www.facebook.com/FbGraph?sk=wall",
+      "is_permanent": true,
+      "position": 0,
       "type": "profile_tab"
     }
   ]
