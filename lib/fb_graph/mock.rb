@@ -91,7 +91,7 @@ module FbGraph
       unless File.exist? _response_file_path_
         response_file_required! _response_file_path_
       end
-      File.new _response_file_path_
+      File.new _response_file_path_, 'r', encoding: 'utf-8'
     end
 
     def response_file_required!(response_path)
