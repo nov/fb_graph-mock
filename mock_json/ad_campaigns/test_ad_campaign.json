@@ -7,5 +7,6 @@
   "end_time": "2011-07-14T16:00:00+00:00",
   "daily_budget": 20000,
   "campaign_status": 1,
-  "lifetime_budget": 100000
+  "lifetime_budget": 100000,
+  "remaining_budget": 9999
 }
