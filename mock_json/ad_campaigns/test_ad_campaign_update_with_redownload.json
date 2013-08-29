@@ -7,6 +7,7 @@
                 "campaign_id": 6004167532222,
                 "name": "New Name",
                 "daily_budget": 500,
+                "remaining_budget": 499,
                 "campaign_status": 2,
                 "daily_imps": 0,
                 "id": "6004167532222",
