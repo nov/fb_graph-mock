@@ -1,0 +1,7 @@
+{
+   "id": "act_12345566",
+   "account_id": 12345566,
+   "name": "Test Ad Account",
+   "spend_cap": 1500,
+   "amount_spent": 1499
+}
