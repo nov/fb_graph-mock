@@ -1,0 +1,9 @@
+{
+  "data": [{
+    "permission": "installed",
+    "status": "granted"
+  }, {
+    "permission": "public_profile",
+    "status": "granted"
+  }]
+}
