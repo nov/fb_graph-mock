@@ -12,7 +12,7 @@ Gem::Specification.new do |gem|
   gem.require_paths = ["lib"]
   gem.add_runtime_dependency "rake"
   gem.add_runtime_dependency "fb_graph"
-  gem.add_runtime_dependency "rspec"
-  gem.add_runtime_dependency "webmock"
-  gem.add_development_dependency "cover_me", ">= 1.2.0"
+  gem.add_runtime_dependency "rspec", "< 3"
+  gem.add_runtime_dependency "webmock", "<= 1.20.2"
+  gem.add_development_dependency "simplecov"
 end
